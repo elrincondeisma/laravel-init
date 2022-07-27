@@ -1,0 +1,55 @@
+@use '../../scss/_bootstrap-extended/include' as light;
+@use '../../scss/_bootstrap-extended/include-dark' as dark;
+@import '../../scss/_custom-variables/libs';
+@import '~datatables.net-buttons-bs5/css/buttons.bootstrap5';
+
+// remove 0.5em margin bottom from dt-buttons
+@media screen and (max-width: 767px) {
+  div.dt-buttons {
+    margin-bottom: 0;
+  }
+}
+
+// avoid dropdown to overlap the trigger button
+.dt-button-collection {
+  margin-top: 0.2rem;
+}
+
+// Light style
+@if $enable-light-style {
+  .light-style {
+    .dataTable a:not([href]):not([tabindex]) {
+      color: map-get(light.$theme-colors, success);
+    }
+    .dt-button-info {
+      box-shadow: light.$floating-component-shadow;
+    }
+  }
+}
+
+// Dark style
+@if $enable-dark-style {
+  .dark-style {
+    .dataTable a:not([href]):not([tabindex]) {
+      color: map-get(dark.$theme-colors, success);
+    }
+    .dt-button-info {
+      box-shadow: dark.$floating-component-shadow;
+    }
+  }
+}
+.dt-button-info {
+  border-width: 0 !important;
+  border-radius: light.$border-radius !important;
+  h2 {
+    font-size: light.$h4-font-size !important;
+  }
+}
+.dt-buttons {
+  position: relative;
+  .dt-button-collection .dropdown-item {
+    @include app-rtl {
+      text-align: right;
+    }
+  }
+}

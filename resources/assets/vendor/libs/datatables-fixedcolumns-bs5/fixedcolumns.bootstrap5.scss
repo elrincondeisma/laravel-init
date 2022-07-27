@@ -1,0 +1,100 @@
+@use '../../scss/_bootstrap-extended/include' as light;
+@use '../../scss/_bootstrap-extended/include-dark' as dark;
+@import '../../scss/_custom-variables/libs';
+@import '~datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5';
+
+// Fixed column style
+div.dataTables_scrollBody thead tr,
+div.DTFC_LeftBodyLiner thead tr {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+// Light style
+@if $enable-light-style {
+  .light-style {
+    table.DTFC_Cloned tr {
+      border-color: light.$table-border-color;
+    }
+    div.DTFC_LeftHeadWrapper table,
+    div.DTFC_LeftBodyWrapper table {
+      border-right: 1px solid light.$table-border-color;
+    }
+    div.DTFC_RightHeadWrapper table,
+    div.DTFC_RightBodyWrapper table {
+      border-left: 1px solid light.$table-border-color;
+    }
+    // To override BS5 css
+    .dt-fixedcolumns thead {
+      border-top-color: light.$table-border-color;
+    }
+    &[dir='rtl'] {
+      div.DTFC_LeftHeadWrapper,
+      div.DTFC_LeftBodyWrapper {
+        border-left: 1px solid light.$table-border-color;
+        table {
+          border: 0;
+        }
+      }
+      div.DTFC_LeftBodyLiner {
+        padding-right: 0 !important;
+      }
+      div.DTFC_RightHeadWrapper,
+      div.DTFC_RightBodyWrapper {
+        border-right: 1px solid light.$table-border-color;
+        table {
+          border: 0;
+        }
+      }
+      div.DTFC_RightBodyLiner {
+        padding-left: 0 !important;
+      }
+    }
+  }
+}
+// Dark style
+@if $enable-dark-style {
+  .dark-style {
+    table.DTFC_Cloned tr {
+      background-color: dark.$card-bg;
+      border-color: dark.$table-border-color;
+    }
+    div.DTFC_LeftHeadWrapper table,
+    div.DTFC_RightHeadWrapper table {
+      background-color: dark.$card-bg;
+    }
+    div.DTFC_LeftHeadWrapper table,
+    div.DTFC_LeftBodyWrapper table {
+      border-right: 1px solid dark.$table-border-color;
+    }
+    div.DTFC_RightHeadWrapper table,
+    div.DTFC_RightBodyWrapper table {
+      border-left: 1px solid dark.$table-border-color;
+    }
+    // To override BS5 css
+    .dt-fixedcolumns thead {
+      border-top-color: dark.$table-border-color;
+    }
+    &[dir='rtl'] {
+      div.DTFC_LeftHeadWrapper,
+      div.DTFC_LeftBodyWrapper {
+        border-left: 1px solid dark.$table-border-color;
+        table {
+          border: 0;
+        }
+      }
+      div.DTFC_LeftBodyLiner {
+        padding-right: 0 !important;
+      }
+      div.DTFC_RightHeadWrapper,
+      div.DTFC_RightBodyWrapper {
+        border-right: 1px solid dark.$table-border-color;
+        table {
+          border: 0;
+        }
+      }
+      div.DTFC_RightBodyLiner {
+        padding-left: 0 !important;
+      }
+    }
+  }
+}

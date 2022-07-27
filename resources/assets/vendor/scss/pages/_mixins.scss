@@ -1,0 +1,14 @@
+/*
+* Pages Mixins
+*/
+@import '../../scss/_bootstrap-extended/functions';
+
+@mixin icon-theme($color) {
+  .icon-card.active {
+    outline: 1px solid $color;
+    i,
+    svg {
+      color: $color;
+    }
+  }
+}

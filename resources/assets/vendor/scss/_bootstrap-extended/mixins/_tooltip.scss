@@ -1,0 +1,33 @@
+// Tooltips
+// *******************************************************************************
+
+@mixin template-tooltip-variant($parent, $background, $color: null) {
+  #{$parent} {
+    .tooltip-inner {
+      background: $background;
+      color: if($color, $color, color-contrast($background));
+    }
+
+    &.bs-tooltip-top .tooltip-arrow::before {
+      border-top-color: $background;
+    }
+
+    &.bs-tooltip-start .tooltip-arrow::before {
+      border-left-color: $background;
+      @include rtl-style {
+        border-right-color: $background;
+      }
+    }
+
+    &.bs-tooltip-bottom .tooltip-arrow::before {
+      border-bottom-color: $background;
+    }
+
+    &.bs-tooltip-end .tooltip-arrow::before {
+      border-right-color: $background;
+      @include rtl-style {
+        border-left-color: $background;
+      }
+    }
+  }
+}

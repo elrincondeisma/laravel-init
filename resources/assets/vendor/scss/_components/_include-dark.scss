@@ -1,0 +1,12 @@
+// Include Dark
+// *******************************************************************************
+
+@import '../_bootstrap-extended/include-dark';
+
+// Mixins
+@import './_mixins'; // Components mixins
+
+//Variables
+@import '../_custom-variables/components-dark'; // Components custom dark variable (for customization purpose)
+@import 'variables-dark'; // Components dark variable
+@import 'variables'; // Components variable
