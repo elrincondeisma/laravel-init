@@ -77,6 +77,17 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'nunomaduro/laravel-desktop-notifier' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NunoMaduro\\LaravelDesktopNotifier\\LaravelDesktopNotifierServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Notifier' => 'NunoMaduro\\LaravelDesktopNotifier\\Facaces\\Notifier',
+    ),
+  ),
   'nunomaduro/termwind' => 
   array (
     'providers' => 

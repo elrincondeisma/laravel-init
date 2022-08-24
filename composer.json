@@ -15,7 +15,8 @@
     "laravel/jetstream": "2.8.5",
     "laravel/sanctum": "^2.14",
     "laravel/tinker": "^2.7",
-    "livewire/livewire": "^2.5"
+    "livewire/livewire": "^2.5",
+    "nunomaduro/laravel-desktop-notifier": "^2.6"
   },
   "require-dev": {
     "fakerphp/faker": "^1.9.1",
