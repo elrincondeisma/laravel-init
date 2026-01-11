@@ -58,7 +58,7 @@ RUN mkdir -p bootstrap/cache storage/app/public storage/framework/cache/data \
     storage/framework/sessions storage/framework/views storage/logs
 
 # Copiar archivos de dependencias primero (cache de Docker)
-COPY composer.json composer.lock ./
+COPY composer.json ./
 
 # Instalar dependencias de Composer (sin scripts)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts
