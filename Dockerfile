@@ -13,8 +13,8 @@ RUN apk add --no-cache \
     libstdc++ \
     # Swoole
     linux-headers $PHPIZE_DEPS openssl-dev curl-dev \
-    # Node.js y Yarn
-    nodejs npm yarn \
+    # Node.js
+    nodejs npm \
     # Procesos
     procps
 
@@ -64,8 +64,8 @@ COPY composer.json ./
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts
 
 # Copiar archivos de Node (cache de Docker)
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=false
+COPY package.json  ./
+RUN npm ci
 
 # Copiar el resto del proyecto
 COPY . .
@@ -73,8 +73,8 @@ COPY . .
 # Ejecutar scripts de Composer y optimizar autoload
 RUN composer dump-autoload --optimize
 
-# Build de assets (Vite)
-RUN yarn build
+# Build de assets (Laravel Mix)
+RUN npm run production
 
 # Limpiar cache de Laravel antes de runtime
 RUN php artisan config:clear \
