@@ -7,15 +7,9 @@ FROM elrincondeisma/laravel-docker-images:latest
 WORKDIR /var/www
 
 # ==================================================
-# Copiar proyecto
+# Copiar proyecto con permisos correctos
 # ==================================================
-COPY . .
-
-# ==================================================
-# Permisos
-# ==================================================
-RUN chown -R laravel:laravel \
-    storage bootstrap/cache
+COPY --chown=laravel:laravel . .
 
 # ==================================================
 # Dependencias PHP
