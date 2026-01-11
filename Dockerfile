@@ -28,7 +28,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 
 # Copy composer files and artisan file
-COPY composer.json composer.lock artisan ./
+COPY composer.json ./
 
 # Create Laravel's basic directory structure
 RUN mkdir -p bootstrap/cache storage/app storage/framework/cache/data \
